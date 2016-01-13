@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cp temperament.css ~/Dropbox/dev/LostBearLabs/pages/temperament
+cp temperament.html ~/Dropbox/dev/LostBearLabs/pages/temperament
+cp temperament.js ~/Dropbox/dev/LostBearLabs/pages/temperament
+cp midi.js ~/Dropbox/dev/LostBearLabs/pages/temperament
+

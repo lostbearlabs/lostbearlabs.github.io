@@ -1,0 +1,61 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="http://www.lostbearlabs.com/lostbearlabs.css" />
+<link rel="stylesheet" type="text/css" href="l-system.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://www.lostbearlabs.com/lib/raphael-2.0.1-min.js"></script>
+<script src="l-system.js"></script>
+</head>
+<body>
+
+
+<div id="CanvasBorder">
+    <div id="TheCanvas"></div>
+</div>
+
+<br />
+
+<div id="FormBorder">
+
+<h1>1. Select a grammar:</h1>
+
+<form action="">
+	<label>Grammars:</label>
+    <label for="selectGrammar"></label>
+    <select id="selectGrammar">	</select>
+	<br />
+	<label>X:</label><label for="grammarTextX"></label>
+    <input id="grammarTextX">
+	<br />
+	<label for="grammarTextF">F:</label>
+    <input id="grammarTextF">
+	<br />
+	<label for="grammarTextPhi">Phi:</label>
+    <input id="grammarTextPhi">
+</form>
+
+<h1>2. Select the depth of expansion:</h1>
+
+<form action="">
+	<label for="drawingDepth">Depth:</label>
+	<select id="drawingDepth">
+		<option id="draw0" value="0" selected="true">0</option>
+		<option id="draw1" value="1">1</option>
+		<option id="draw2" value="2">2</option>
+		<option id="draw3" value="3">3</option>
+		<option id="draw4" value="4">4</option>
+
+	</select>
+
+</form>
+
+<p><span style="font-size: small;">(Examples are from Chapter 1 of <em>The Algorithmic Beauty of Plants</em> by Przemyslaw Prusinkiewicz and Aristid Lindenmayer.)</span></p>
+
+</div>
+
+</body>
+
+
+
+</html>

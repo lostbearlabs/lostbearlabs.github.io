@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Temperament</title>
+    <link rel="stylesheet" type="text/css" href="http://www.lostbearlabs.com/lostbearlabs.css" />
+    <link rel="stylesheet" type="text/css" href="temperament.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://www.lostbearlabs.com/lib/raphael-2.0.1-min.js" type="text/javascript"></script>
+    <script src="midi.js" type="text/javascript"></script>
+    <script src="temperament.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="CanvasBorder">
+    <div id="TheCanvas"></div>
+</div>
+
+<br />
+
+<div id="FormBorder">
+
+    <form action="">
+        <label>Tuning:</label>
+        <label for="selectTuning"></label>
+        <select id="selectTuning">	</select>
+
+        <button type="button" id="play">Play</button>
+
+    </form>
+
+</div>
+
+<p><em>
+(click in the grid to select notes and see how their harmonics overlay)
+<br />
+(the 'Play' button will <a href="http://sergimansilla.com/blog/dinamically-generating-midi-in-javascript/">probably</a> only work in Firefox with the QuickTime7 plug-in.
+</em></p>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cp waves.css ~/Dropbox/dev/LostBearLabs/pages/waves
+cp waves.html ~/Dropbox/dev/LostBearLabs/pages/waves
+cp waves.js ~/Dropbox/dev/LostBearLabs/pages/waves
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp diffusion.css ~/Dropbox/dev/LostBearLabs/pages/diffusion
+cp diffusion.html ~/Dropbox/dev/LostBearLabs/pages/diffusion
+cp diffusion.js ~/Dropbox/dev/LostBearLabs/pages/diffusion

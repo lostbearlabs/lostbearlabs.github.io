@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cp spring.css ~/Dropbox/dev/LostBearLabs/pages/spring
+cp spring.html ~/Dropbox/dev/LostBearLabs/pages/spring
+cp spring.js ~/Dropbox/dev/LostBearLabs/pages/spring
+cp shape-manager.js ~/Dropbox/dev/LostBearLabs/pages/spring
+

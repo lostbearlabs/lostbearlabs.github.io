@@ -1,0 +1,35 @@
+h1 {
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+label {
+	font-family: monospace;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+div#CanvasBorder {
+    background-color: #2f4f4f;
+    border: 1px black;
+    height: 400px;
+    width: 400px;
+    padding: 5px 5px 5px 5px;
+}
+
+div#TheCanvas {
+    background-color: white;
+    height: 400px;
+    width: 400px;
+    background-position: 0;
+}
+
+
+div#FormBorder {
+    border: 2px solid;
+    width: 395px;
+    padding: 5px 5px 5px 5px;
+}
+

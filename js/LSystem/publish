@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp l-system.css ~/Dropbox/dev/LostBearLabs/pages/l-system
+cp l-system.html ~/Dropbox/dev/LostBearLabs/pages/l-system
+cp l-system.js ~/Dropbox/dev/LostBearLabs/pages/l-system

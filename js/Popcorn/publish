@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp popcorn.css ~/Dropbox/dev/LostBearLabs/pages/popcorn
+cp popcorn.html ~/Dropbox/dev/LostBearLabs/pages/popcorn
+cp popcorn.js ~/Dropbox/dev/LostBearLabs/pages/popcorn

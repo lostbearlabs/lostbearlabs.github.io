@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/shape-manager.js" />
+        <item url="file://$PROJECT_DIR$/spring.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/shape-manager.js" />
+      <root url="file://$PROJECT_DIR$/spring.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
