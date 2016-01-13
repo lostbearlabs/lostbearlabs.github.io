@@ -1,0 +1,49 @@
+
+body
+{
+    margin: 30px;
+}
+
+div.main
+{
+    position: absolute;
+    width: 200px;
+    height: 400px;
+}
+
+div.logo
+{
+    position: absolute;
+    left :200px;
+    width: 200px;
+    height: 400px;
+}
+
+img.logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 100px;
+}
+
+
+div.letterhead {
+    position: absolute;
+    top: 300px;
+    width: 300px;
+}
+
+p.company {
+    text-align: center;
+    font-size: small;
+    margin-top: 20px;
+    margin-bottom: 1px;
+    padding-bottom: 0;
+}
+p.motto {
+    text-align: center;
+    font-style: italic;
+    font-size: small;
+    margin: 1px;
+    padding-top: 0;
+}
