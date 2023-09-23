@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Guitar</title>
+    <link rel="stylesheet" type="text/css" href="../../lostbearlabs.css"/>
+    <link rel="stylesheet" type="text/css" href="guitar.css"/>
+    <script src="guitar.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="app">
+    <div id="neck"></div>
+
+    <div id="controls">
+        <button id="clear" onclick="{onClear()}">clear</button>
+        <button id="left" onclick="{onMove(-1, 0)}">&larr;</button>
+        <button id="right" onclick="{onMove(1, 0)}">&rarr;</button>
+        <button id="up" onclick="{onMove(0, 1)}">&uarr;</button>
+        <button id="down" onclick="{onMove(0, -1)}">&darr;</button>
+        <button id="C" onclick="{setChord('C')}">C</button>
+        <button id="A" onclick="{setChord('A')}">A</button>
+        <button id="G" onclick="{setChord('G')}">G</button>
+        <button id="E" onclick="{setChord('E')}">E</button>
+        <button id="D" onclick="{setChord('D')}">D</button>
+
+    </div>
+
+    <div id="instructions">
+        <ul>
+            <li>click to set note on string; click again to clear same string</li>
+            <li>right/left to transpose by one fret (minor second) up/down</li>
+            <li>up/down to transpose by one string (perfect fourth) up/down</li>
+            <li>C/A/G/E/D to reset to open-position chord</li>
+            <li>clear to reset to all unplayed</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+
+#app {
+    //zoom: 125%
+}
+
+#neck {
+    background-color: antiquewhite;
+    width: 500px;
+    height: 140px;
+    position: absolute;
+}
+
+#controls {
+    position: absolute;
+    top: 180px;
+    left: 140px;
+}
+
+#instructions {
+    position: absolute;
+    top: 200px;
+    left: 120px;
+}
+
+.label {
+    left: 60px;
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+
+.string {
+    left: 102px;
+    height: 1px;
+    border-bottom: 1px solid black;
+    position: absolute;
+}
+
+.fret {
+    width: 1px;
+    height: 100px;
+    top: 21px;
+    border-right: 1px solid black;
+    position: absolute;
+}
+
+.nut {
+    width: 3px;
+    height: 100px;
+    top: 21px;
+    border-right: 3px solid black;
+    position: absolute;
+}
+
+.bar {
+    width: 3px;
+    height: 100px;
+    top: 21px;
+    border-right: 3px solid lightgray;
+    position: absolute;
+}
+
+.note {
+    height: 13px;
+    width: 13px;
+    background-color: black;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: lightgray;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+}
+
+
+.silent {
+    height: 9px;
+    width: 9px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+}
