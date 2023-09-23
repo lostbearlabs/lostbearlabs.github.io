@@ -13,6 +13,7 @@ let frets = []
 let bars = []
 let notes = []
 let labels = []
+let alternates = []
 
 let maxY = minY + (numStrings) * dString
 let maxX = minX + (numFrets+1) * dFret
@@ -23,6 +24,10 @@ let neckHeight = minY*2 + dString*(numStrings-1)
 let silent = -100
 let fretted = [silent, silent, silent, silent, silent, silent]
 
+let bases = [0, 5, 10, 15, 19, 24]
+let names = ["E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B", "C", "C#/Db", "D", "D#/Eb"]
+let numTones = names.length
+
 window.onload = function () {
     setupNeck()
     setupDots()
@@ -31,6 +36,7 @@ window.onload = function () {
     setupNotes()
     setupLabels()
     addClickListener()
+    onClear()
 }
 
 function px(n) {
@@ -163,12 +169,55 @@ function render() {
             labels[i].innerText = noteName(i, fretted[i])
         }
     }
+
+    clearAlternates()
+    let checkbox = document.getElementById("alternates")
+    if( checkbox.checked) {
+        showAlternates()
+    }
+}
+
+function showAlternates() {
+    console.log("--- begin show alternates ---")
+    let played = new Set()
+
+    for( let string=0; string<numStrings; string++) {
+        let fret = fretted[string]
+        if( fret>=0 && fret < numFrets) {
+            let tone = (bases[6-string-1] + fret + numTones) % numTones
+            played.add(tone)
+            console.log(`played: tone=${tone}`)
+        }
+    }
+
+    for( let string=0; string<numStrings; string++) {
+        for( let fret=0; fret<numFrets; fret++) {
+            let tone = (bases[6-string-1] + fret + numTones) % numTones
+            if( played.has(tone) && fretted[string]!==fret ) {
+                console.log(`show: tone=${tone}, string=${string}, fret=${fret}, numTones=${numTones}`)
+                showAlternate(string, fret)   
+            }
+        }
+    }
+    console.log("--- end show alternates ---")
+}
+
+function showAlternate(string, fret) {
+    let neck = document.getElementById("neck-alternates")
+    let alternate = document.createElement("div")
+    alternate.className = "alternate"
+    alternate.style.left = notePosX(fret)
+    alternate.style.top = px( minY + (string - 0.25)*dString)
+    neck.appendChild(alternate)
+    alternates.push(alternate)
+}
+
+function clearAlternates() {
+    let neck = document.getElementById("neck-alternates")
+    neck.innerHTML=''
 }
 
 function noteName(string, fret) {
-    let bases = [0, 5, 10, 15, 19, 24]
-    let names = ["E", "F", "F#/Gb", "G", "G#/Ab", "A", "A#/Bb", "B", "C", "C#/Db", "D", "D#/Eb"]
-    let numTones = names.length
     let tone = (bases[6-string-1] + fret + numTones) % numTones
     // console.log(`string=${string}, fret=${fret}, tone=${tone}`)
     return names[tone]
@@ -179,6 +228,11 @@ function onClear() {
     for (let i = 0; i < 6; i++) {
         fretted[i] = silent
     }
+    clearAlternates()
+    render()
+}
+
+function onClickAlternates() {
     render()
 }
 
