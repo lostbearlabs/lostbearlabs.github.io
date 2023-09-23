@@ -1,13 +1,10 @@
-// TODO: get neck position in here too
-// TODO: make controls and instructions flow below neck
-// TODO: make everything a little bigger
-// TODO: add equivalent notes
+// TODO: add shadow notes
+// TODO (?): color equivalent notes
 
 let minX = 100
-let minY = 45
-let dString = 20
-let dFret = 24
-let silent = -100
+let minY = 40
+let dString = 35
+let dFret = 40
 
 let numStrings = 6
 let numFrets = 15
@@ -20,10 +17,14 @@ let labels = []
 let maxY = minY + (numStrings) * dString
 let maxX = minX + (numFrets+1) * dFret
 
+let neckWidth = minX*2 + dFret*numFrets
+let neckHeight = minY*2 + dString*(numStrings-1)
 
+let silent = -100
 let fretted = [silent, silent, silent, silent, silent, silent]
 
 window.onload = function () {
+    setupNeck()
     setupDots()
     setupStrings()
     setupFrets()
@@ -32,12 +33,26 @@ window.onload = function () {
     addClickListener()
 }
 
+function px(n) {
+    return String(n) + "px"
+}
+
+function setupNeck() {
+    let neck = document.getElementById("neck")
+    neck.style.width = px(neckWidth)
+    neck.style.height = px(neckHeight)
+
+    let rest = document.getElementById("rest")
+    rest.style.top = px(neckHeight+50)
+    rest.style.left = px(minX + dFret + dFret/2)
+}
+
 function notePosX(fret) {
     if (fret < 0 || fret > numFrets) {
-        return String(minX + 5) + "px"
+        return px(minX + 5)
     } else {
         let x = (minX + (fret + 0.25 ) * dFret)
-        return String(x) + "px"
+        return px(x)
     }
 }
 
@@ -47,7 +62,7 @@ function setupLabels() {
         let label = document.createElement("div")
         label.id = `label${i}`
         label.className = "label"
-        label.style.top = String((i+1)*dString - 5) + "px"
+        label.style.top = px((i+1)*dString - 5)
         neck.appendChild(label)
         labels.push(label)
     }
@@ -59,8 +74,9 @@ function setupStrings() {
         let string = document.createElement("div")
         string.id = `string${i}`
         string.className = "string"
-        string.style.top = String((i+1)*dString) + "px"
-        string.style.width = String(numFrets * dFret) + "px"
+        string.style.top = px((i+1)*dString)
+        string.style.left = notePosX(0)
+        string.style.width = px(numFrets * dFret)
         neck.appendChild(string)
         strings.push(string)
     }
@@ -72,7 +88,7 @@ function setupNotes() {
         let note = document.createElement("div")
         note.id = `note${i}`
         note.className = "silent"
-        note.style.top = String((i+1)*dString - 5) + "px"
+        note.style.top = px((i+1)*dString - 5)
         note.style.left = notePosX(0)
         neck.appendChild(note)
         notes.push(note)
@@ -87,25 +103,26 @@ function setupFrets() {
         fret.id = `fret${i}`
         fret.className = i===0 ? "nut" : "fret"
         let dx = i===0 ? -3 : 0
-        fret.style.left = String( minX + (i+1)*dFret + dx) + "px"
+        fret.style.left = px( minX + (i+1)*dFret + dx)
+        fret.style.height = px(numStrings*dString)
         neck.appendChild(fret)
         frets.push(fret)
     }
 }
 
 function setupDots() {
-    setupDot(5, 2)
-    setupDot(7, 2)
-    setupDot(12, 1)
-    setupDot(12, 3)
+    setupDot(5, 3)
+    setupDot(7, 3)
+    setupDot(12, 2)
+    setupDot(12, 4)
 }
 
 function setupDot(fret, string) {
     let neck = document.getElementById("neck")
     let dot = document.createElement("div")
     dot.className = "dot"
-    dot.style.left = String( minX + (fret+.30)*dFret) + "px"
-    dot.style.top = String( minY + (string-1)*dString) + "px"
+    dot.style.left = px( minX + (fret+.30)*dFret)
+    dot.style.top = px( minY + (string-1)*dString)
     neck.appendChild(dot)
     bars.push(dot)
 }
@@ -120,7 +137,7 @@ function addClickListener() {
             return
         }
 
-        let fret = Math.floor((x - minX - dFret / 2 - dFret) / dFret)
+        let fret = Math.floor((x - minX - dFret) / dFret)
         let string = Math.floor((y - minY) / dString)
         console.log(`fret=${fret}, string=${string}`)
 
@@ -134,14 +151,14 @@ function addClickListener() {
 
 function render() {
     for (let i = 0; i < numStrings; i++) {
-        let id = "note" + (i + 1)
         let note = notes[i]
         let fret = fretted[i]
-        note.style.left = notePosX(fretted[i])
-        if (fret < 0 || fret > numFrets) {
+        if (fret < 0 || fret >= numFrets) {
+            note.style.left = notePosX(silent)
             note.className = "silent"
             labels[i].innerText = ""
         } else {
+            note.style.left = notePosX(fretted[i])
             note.className = "note"
             labels[i].innerText = noteName(i, fretted[i])
         }
