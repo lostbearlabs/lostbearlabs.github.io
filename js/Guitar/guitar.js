@@ -51,7 +51,7 @@ function notePosX(fret) {
     if (fret < 0 || fret > numFrets) {
         return px(minX + 5)
     } else {
-        let x = (minX + (fret + 0.25 ) * dFret)
+        let x = (minX + (fret + 0.35 ) * dFret)
         return px(x)
     }
 }
@@ -122,7 +122,7 @@ function setupDot(fret, string) {
     let dot = document.createElement("div")
     dot.className = "dot"
     dot.style.left = px( minX + (fret+.30)*dFret)
-    dot.style.top = px( minY + (string-1)*dString)
+    dot.style.top = px( minY + (string-.75)*dString)
     neck.appendChild(dot)
     bars.push(dot)
 }
@@ -193,17 +193,17 @@ function onMove(dx, dy) {
     for( let i=0; i<dy; i++) {
         // console.log("moving up")
         let prev = fretted.slice()
-        fretted[5] = prev[1]
         fretted[0] = prev[1]
         fretted[1] = prev[2] + 1
         fretted[2] = prev[3]
         fretted[3] = prev[4]
         fretted[4] = prev[5]
+        fretted[5] = prev[0]
     }
     for( let i=0; i>dy; i--) {
         // console.log("moving down")
         let prev = fretted.slice()
-        fretted[0] = prev[4]
+        fretted[0] = prev[5]
         fretted[1] = prev[0]
         fretted[2] = prev[1] - 1
         fretted[3] = prev[2]
