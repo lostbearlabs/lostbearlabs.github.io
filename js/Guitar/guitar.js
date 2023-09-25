@@ -307,12 +307,13 @@ function setChord(name) {
         fretted[5] = 0
     }
     if( name==="D") {
-        fretted[0] = 1
-        fretted[1] = 2
-        fretted[2] = 1
+        fretted[0] = 2
+        fretted[1] = 3
+        fretted[2] = 2
 
         fretted[3] = 0
         fretted[4] = 0
+        fretted[5] = 2
     }
 
 
